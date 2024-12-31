@@ -15,7 +15,7 @@ const getweathercity = (city) => {
             const result = await response.json();
             console.log(result)
             cloud_pct.innerHTML = result.weather[0].main
-            temp.innerHTML = ((result.main.temp - 32) * (5 / 9)).toFixed(2) 
+            temp.innerHTML = ((result.main.temp - 32) * (5 / 9)).toFixed(2) + " °C"
     	    temp2.innerHTML = ((result.main.temp - 32) * (5 / 9)).toFixed(2) + " °C";
             feels_like.innerHTML = result.main.feels_like
             humidity.innerHTML = result.main.humidity
