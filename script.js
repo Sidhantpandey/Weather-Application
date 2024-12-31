@@ -15,13 +15,13 @@ const getweathercity = (city) => {
             const result = await response.json();
             console.log(result)
             cloud_pct.innerHTML = result.weather[0].main
-            temp.innerHTML = result.main.temp
-            temp2.innerHTML = result.main.temp
+            temp.innerHTML = (result.main.temp - 273.15).toFixed(2) + " °C";
+    	    temp2.innerHTML = (result.main.temp - 273.15).toFixed(2) + " °C"; 
             feels_like.innerHTML = result.main.feels_like
             humidity.innerHTML = result.main.humidity
             humidity2.innerHTML = result.main.humidity
-            min_temp.innerHTML = result.main.temp_min
-            max_temp.innerHTML = result.main.temp_max
+            min_temp.innerHTML = (result.main.temp_min - 273.15).toFixed(2) + " °C"; 
+    	    max_temp.innerHTML = (result.main.temp_max - 273.15).toFixed(2) + " °C";
             wind_speed.innerHTML = result.wind.speed
             wind_speed2.innerHTML = result.wind.speed
             wind_degrees.innerHTML = result.wind.deg
