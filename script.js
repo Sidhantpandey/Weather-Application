@@ -15,18 +15,18 @@ const getweathercity = (city) => {
             const result = await response.json();
             console.log(result)
             cloud_pct.innerHTML = result.weather[0].main
-            temp.innerHTML = (result.main.temp - 273.15).toFixed(2) + " °C";
-    	    temp2.innerHTML = (result.main.temp - 273.15).toFixed(2) + " °C"; 
+            temp.innerHTML = ((result.main.temp - 32) * (5 / 9)).toFixed(2) 
+    	    temp2.innerHTML = ((result.main.temp - 32) * (5 / 9)).toFixed(2) + " °C";
             feels_like.innerHTML = result.main.feels_like
             humidity.innerHTML = result.main.humidity
             humidity2.innerHTML = result.main.humidity
-            min_temp.innerHTML = (result.main.temp_min - 273.15).toFixed(2) + " °C"; 
-    	    max_temp.innerHTML = (result.main.temp_max - 273.15).toFixed(2) + " °C";
+            min_temp.innerHTML = ((result.main.temp_min - 32) * (5 / 9)).toFixed(2) + " °C"; 
+   	    max_temp.innerHTML = ((result.main.temp_max - 32) * (5 / 9)).toFixed(2) + " °C"; 
             wind_speed.innerHTML = result.wind.speed
             wind_speed2.innerHTML = result.wind.speed
             wind_degrees.innerHTML = result.wind.deg
-            sunrise.innerHTML = result.sys.sunrise
-            sunset.innerHTML = result.sys.sunset
+            sunrise.innerHTML = new Date(result.sys.sunrise * 1000).toLocaleTimeString(); 
+   	    sunset.innerHTML = new Date(result.sys.sunset * 1000).toLocaleTimeString(); 
         } catch (error) {
             console.error(error);
         }
